@@ -1,9 +1,11 @@
 // StickFigure.js
 import React from 'react';
-import { useFrame } from '@react-three/fiber';
+import { useGLTF } from '@react-three/drei';
 
 const StickFigure = ({ position }) => {
-	return <mesh position={position}>{/* Your stick figure 3D model */}</mesh>;
+	const { scene } = useGLTF('/path/to/stick_figure.glb');
+
+	return <primitive object={scene} position={position} />;
 };
 
 export default StickFigure;
